@@ -7,7 +7,6 @@ import UserList from "../ui/UserList";
 import {Button} from "../ui/Button";
 import BaseContainer from "../ui/BaseContainer";
 import "styles/views/Game.scss";
-import User from "../../models/User";
 
 const Player = ({user}) => (
     <div className="player container">
