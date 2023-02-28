@@ -1,4 +1,4 @@
- import React, {useState} from 'react';
+import React, {useState} from 'react';
 import {api, handleError} from 'helpers/api';
 import User from 'models/User';
 import {useHistory} from 'react-router-dom';
@@ -12,8 +12,9 @@ import PropTypes from "prop-types";
 It is possible to add multiple components inside a single file,
 however be sure not to clutter your files with an endless amount!
 As a rule of thumb, use one file per component and only add small,
-specific components that belong to the main one in the same file.
+specific components that belong to the main one and the same file.
  */
+
 const FormField = props => {
   return (
     <div className="register field">
