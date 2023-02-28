@@ -7,7 +7,6 @@ import 'styles/views/Register.scss';
 import 'styles/views/Switch.scss';
 import BaseContainer from "components/ui/BaseContainer";
 import PropTypes from "prop-types";
-import {Link} from 'react-router-dom'
 
 /*
 It is possible to add multiple components inside a single file,
