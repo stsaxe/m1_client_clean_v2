@@ -62,6 +62,7 @@ const Register = props => {
       history.push(`/game`);
     } catch (error) {
       alert(`Something went wrong during the register: \n${handleError(error)}`);
+      history.push(`/login`);
     }
   }
 

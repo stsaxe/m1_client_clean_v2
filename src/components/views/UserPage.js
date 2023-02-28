@@ -60,7 +60,6 @@ const routeToGame = () => {
     let cd = user.creation_date.split("T")[0];
     content = (
         <div className="user overview">
-            <div>UserID: {userIDRoute}</div>
             <div>Username: {user.username}</div>
             <div>Status: {user.status}</div>
             <div>Created: {cd}</div>
