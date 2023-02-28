@@ -7,6 +7,7 @@ import UserList from "../ui/UserList";
 import {Button} from "../ui/Button";
 import BaseContainer from "../ui/BaseContainer";
 import "styles/views/Game.scss";
+import User from "../../models/User";
 
 const Player = ({user}) => (
     <div className="player container">
@@ -32,7 +33,8 @@ const Game = () => {
     const logout = async () => {
         try {
             const userID = localStorage.getItem('userID');
-            const response = await api.post('/users/logout/' + userID);
+            await api.post('/users/logout/' + userID);
+
             localStorage.removeItem('token');
 
 
@@ -81,7 +83,7 @@ const Game = () => {
         }
 
         fetchData();
-    }, []);
+    }, );
 
     let content = <Spinner/>;
 

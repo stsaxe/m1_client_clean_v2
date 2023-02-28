@@ -50,8 +50,8 @@ const EditUser = () => {
             const requestBody = JSON.stringify({username, birthday});
             const response = await api.put("/users/" + localStorage.userID, requestBody);
 
-            const response_2 = await api.get("/users/" + localStorage.userID, );
-            const new_user_data = new User(response_2.data);
+            //const response_2 = await api.get("/users/" + localStorage.userID, );
+            const new_user_data = new User(response.data);
 
             localStorage.setItem("username", new_user_data.username);
             localStorage.setItem("birthday", new_user_data.birthday);
@@ -84,7 +84,7 @@ const EditUser = () => {
             }
           }
         fetchData(userIDRoute);
-    }, []);
+    }, [userIDRoute]);
 
     let content = <Spinner/>;
 

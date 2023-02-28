@@ -49,7 +49,7 @@ const routeToGame = () => {
     }
 
     fetchData(userIDRoute);
-  }, []);
+  }, [userIDRoute]);
 
 
   let content = <Spinner/>;
