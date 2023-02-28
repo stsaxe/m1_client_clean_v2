@@ -61,7 +61,7 @@ const Register = props => {
       // Login successfully worked --> navigate to the route /overview in the OverviewRouter
       history.push(`/game`);
     } catch (error) {
-      alert(`Something went wrong during the register: \n${handleError(error)}`);
+      alert(`Something went wrong during the registration. Username is probably already taken. \n${handleError(error)}`);
       history.push(`/login`);
     }
   }

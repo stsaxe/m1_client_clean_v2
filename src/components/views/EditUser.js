@@ -48,7 +48,8 @@ const EditUser = () => {
     const saveChanges = async () => {
         try {
             const requestBody = JSON.stringify({username, birthday});
-            const response = await api.put("/users/" + localStorage.userID, requestBody);
+            await api.put("/users/" + localStorage.userID, requestBody);
+            const response = await api.get("/users/" + localStorage.userID, );
 
             //const response_2 = await api.get("/users/" + localStorage.userID, );
             const new_user_data = new User(response.data);
