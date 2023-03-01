@@ -49,7 +49,7 @@ const Login = props => {
       const user = new User(response.data);
 
       // Store the token, id and username into the local storage.
-      localStorage.setItem('token', user.token);
+      //localStorage.setItem('token', user.token);
       localStorage.setItem('userID', user.userID);
       localStorage.setItem('username', user.username);
       localStorage.setItem('creation_date', user.creation_date);

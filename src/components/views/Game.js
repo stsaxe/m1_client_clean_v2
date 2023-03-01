@@ -35,13 +35,13 @@ const Game = () => {
             const userID = localStorage.getItem('userID');
             await api.post('/users/logout/' + userID);
 
-            localStorage.removeItem('token');
+            localStorage.removeItem('userID');
 
 
             history.push('/login');
         } catch (error) {
-            alert(`Something went wrong when trying to logout: \n${handleError(error)}`);
-            localStorage.removeItem('token');
+            //alert(`Something went wrong when trying to logout: \n${handleError(error)}`);
+            localStorage.removeItem('userID');
             history.push('/login');
         }
     }
