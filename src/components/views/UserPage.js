@@ -1,9 +1,9 @@
 import {useHistory, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {api, handleError} from "../../helpers/api";
 import {Spinner} from "../ui/Spinner";
 import {Button} from "../ui/Button";
 import BaseContainer from "../ui/BaseContainer";
+import {get_with_token, handleError} from "../../helpers/api";
 
 
 const UserPage = () => {
@@ -29,7 +29,7 @@ const routeToGame = () => {
     // effect callbacks are synchronous to prevent race conditions. So we put the async function inside:
     async function fetchData(userIDRoute) {
       try {
-        const response = await api.get("/users/" + userIDRoute);
+        const response = await get_with_token().get("/users/" + userIDRoute);
 
         // Get the returned user and update the state.
         setUser(response.data);

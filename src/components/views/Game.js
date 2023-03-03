@@ -36,12 +36,14 @@ const Game = () => {
             await api.post('/users/logout/' + userID);
 
             localStorage.removeItem('userID');
+            localStorage.removeItem('token');
 
 
             history.push('/login');
         } catch (error) {
             //alert(`Something went wrong when trying to logout: \n${handleError(error)}`);
             localStorage.removeItem('userID');
+            localStorage.removeItem('token');
             history.push('/login');
         }
     }

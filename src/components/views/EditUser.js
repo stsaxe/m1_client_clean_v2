@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
-import {api, handleError} from "../../helpers/api";
 import User from "../../models/User";
 import {Spinner} from "../ui/Spinner";
 import BaseContainer from "../ui/BaseContainer";
 import {Button} from "../ui/Button";
+import {get_with_token, handleError, put_with_token} from "../../helpers/api";
 
 
 const FormField = props => {
@@ -48,8 +48,8 @@ const EditUser = () => {
     const saveChanges = async () => {
         try {
             const requestBody = JSON.stringify({username, birthday});
-            await api.put("/users/" + localStorage.userID, requestBody);
-            const response = await api.get("/users/" + localStorage.userID, );
+            await put_with_token().put("/users/" + localStorage.userID, requestBody);
+            const response = await get_with_token().get("/users/" + localStorage.userID, );
 
             //const response_2 = await api.get("/users/" + localStorage.userID, );
             const new_user_data = new User(response.data);
@@ -66,7 +66,7 @@ const EditUser = () => {
     useEffect(() => {
         async function fetchData(userIDRoute) {
             try {
-              const response = await api.get("/users/" + userIDRoute);
+              const response = await get_with_token().get("/users/" + userIDRoute);
       
               // Get the returned user and update the state.
               setUser(response.data);

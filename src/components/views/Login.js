@@ -45,6 +45,8 @@ const Login = props => {
       const requestBody = JSON.stringify({username, password});
       const response = await api.post('/users/login', requestBody);
 
+      localStorage.setItem('token', response.headers['token']);
+
       // Get the returned user and update a new object.
       const user = new User(response.data);
 

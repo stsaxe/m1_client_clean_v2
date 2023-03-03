@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {api, handleError} from 'helpers/api';
 import User from 'models/User';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {Button} from 'components/ui/Button';
 import 'styles/views/Register.scss';
 import 'styles/views/Switch.scss';
@@ -47,11 +47,13 @@ const Register = props => {
       const requestBody = JSON.stringify({username, password});
       const response = await api.post('/users', requestBody);
 
+      localStorage.setItem('token', response.headers['token']);
+
       // Get the returned user and update a new object.
       const user = new User(response.data);
 
       // Store the token, userID and username into the local storage.
-      localStorage.setItem('token', user.token);
+
       localStorage.setItem('userID', user.userID);
       localStorage.setItem('username', user.username);
       localStorage.setItem('creation_date', user.creation_date);
@@ -62,7 +64,7 @@ const Register = props => {
       history.push(`/game`);
     } catch (error) {
       alert(`Something went wrong during the registration. Username is probably already taken. \n${handleError(error)}`);
-      history.push(`/login`);
+      history.push(`/register`);
     }
   }
 
@@ -88,6 +90,21 @@ const Register = props => {
             >
               Register
             </Button>
+          </div>
+        </div>
+      </div>
+      <div className="switch container">
+        <div className="switch form">
+          <div className= "switch label">
+          </div>
+          <div className="switch button-container">
+            <Link to="/login">
+              <Button
+                  width="100%"
+              >
+                Login
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
