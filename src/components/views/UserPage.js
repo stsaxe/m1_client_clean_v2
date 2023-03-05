@@ -21,10 +21,7 @@ const UserPage = () => {
 const routeToGame = () => {
     history.push('/game')
 }
-  // the effect hook can be used to react to change in your component.
-  // in this case, the effect hook is only run once, the first time the component is mounted
-  // this can be achieved by leaving the second argument an empty array.
-  // for more information on the effect hook, please see https://reactjs.org/docs/hooks-effect.html
+
   useEffect(() => {
     // effect callbacks are synchronous to prevent race conditions. So we put the async function inside:
     async function fetchData(userIDRoute) {
@@ -64,6 +61,7 @@ const routeToGame = () => {
             <div>Status: {user.status}</div>
             <div>Created: {cd}</div>
             <div>Birthday: {bd}</div>
+            <br />
             <Button width="100%"
                     disabled={user.username !== localStorage.getItem('username')}
                     onClick={() => editUserPage()}>

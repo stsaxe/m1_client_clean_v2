@@ -112,9 +112,13 @@ const EditUser = () => {
                   placeholder={user.birthday}
               />
               <Button width="100%"
-                      disabled={!username || !birthday}
+                      disabled={!username && !birthday}
                       onClick={() => saveChanges()}>
                   Save
+              </Button>
+              <Button width="100%"
+                      onClick={() => returnToUserPage()}>
+                  Go back
               </Button>
           </div>
       )

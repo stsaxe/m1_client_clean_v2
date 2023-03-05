@@ -49,10 +49,8 @@ const Register = props => {
 
       localStorage.setItem('token', response.headers['token']);
 
-      // Get the returned user and update a new object.
-      const user = new User(response.data);
 
-      // Store the token, userID and username into the local storage.
+      const user = new User(response.data);
 
       localStorage.setItem('userID', user.userID);
       localStorage.setItem('username', user.username);
@@ -60,7 +58,6 @@ const Register = props => {
       localStorage.setItem('birthday', user.birthday);
       localStorage.setItem('status', user.status);
 
-      // Login successfully worked --> navigate to the route /overview in the OverviewRouter
       history.push(`/game`);
     } catch (error) {
       alert(`Something went wrong during the registration. Username is probably already taken. \n${handleError(error)}`);
