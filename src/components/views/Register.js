@@ -66,46 +66,46 @@ const Register = props => {
   }
 
   return (
-    <BaseContainer>
-      <div className="register container">
-        <div className="register form">
-          <FormField
-            label="Username"
-            value={username}
-            onChange={n => setUsername(n)}
-          />
-          <FormField
-            label="Password"
-            value={password}
-             onChange={n => setPassword(n)}
-          />
-          <div className="register button-container">
-            <Button
-              disabled={!username || !password}
-              width="100%"
-              onClick={() => doRegister()}
-            >
-              Register
-            </Button>
-          </div>
-        </div>
-      </div>
-      <div className="switch container">
-        <div className="switch form">
-          <div className= "switch label">
-          </div>
-          <div className="switch button-container">
-            <Link to="/login">
+      <BaseContainer>
+        <div className="login container">
+          <div className="login form">
+            <FormField
+                label="Username"
+                value={username}
+                onChange={n => setUsername(n)}
+            />
+            <FormField
+                label="Password"
+                value={password}
+                onChange={n => setPassword(n)}
+            />
+            <div className="login button-container">
               <Button
+                  disabled={!username || !password}
                   width="100%"
+                  onClick={() => doRegister()}
               >
-                Login
+                Register
               </Button>
-            </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </BaseContainer>
+        <div className="switch container">
+          <div className="switch form">
+            <div className= "switch label">
+            </div>
+            <div className="switch button-container">
+              <Link to="/login">
+                <Button
+                    width="100%"
+                >
+                  Go Back to Login
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </BaseContainer>
 
 
 

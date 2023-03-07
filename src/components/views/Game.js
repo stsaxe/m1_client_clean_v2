@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {api, handleError} from "../../helpers/api";
 import {Spinner} from "../ui/Spinner";
-import UserList from "../ui/UserList";
 import {Button} from "../ui/Button";
 import BaseContainer from "../ui/BaseContainer";
 import "styles/views/Game.scss";
@@ -76,7 +75,7 @@ const Game = () => {
     if (users) {
         content = (
             <div className="game">
-                <UserList className="game user-list">
+                <ul className="game user-list">
                     {users.map(user => {
                         return (
 
@@ -85,7 +84,7 @@ const Game = () => {
                             </Link>
                         );
                     })}
-                </UserList>
+                </ul>
                 <Button
                     width="100%"
                     onClick={() => logout()}
